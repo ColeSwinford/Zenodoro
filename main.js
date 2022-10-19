@@ -1,51 +1,104 @@
-//Timer variables/default config
-const startingMinutes = 25;
-let time = startingMinutes * 60;
-const timerElement = document.getElementById("timer");
-const minutes = Math.floor(time/60);
+focusMinutes = 0.1;
+time = focusMinutes * 60;
+minutes = Math.floor(time/60);
 let seconds = time % 60;
+const timerElement = document.getElementById("timer");
 seconds = seconds < 10 ? `0` + seconds : seconds;
 timerElement.innerHTML = `${minutes}: ${seconds}`;
 
-//Timer
-function Timer(){
+//Running Status
+timerRun = false;
+coolDownRun = false;
+function timerRunning(){
+    coolDownRun = false;
+    timerRun = true;
+    return timerRun, coolDownRun;
+}
+function coolDownRunning(){
+    timerRun = false;
+    coolDownRun = true;
+    return coolDownRun, timerRun;
+}
+
+
+//Clear Intervals
+function clearIntervals(){
+    return clearInterval(timerInterval);
+}
+
+
+//Focus Timer
+function timer(){
+    timerRunning();
+
     timerInterval = setInterval(updateTimer, 1000);
     function updateTimer(){
+        if(time == -1){
+            clearIntervals();
+            coolDown();
+        }
         let minutes = Math.floor(time/60);
         let seconds = time % 60;
         seconds = seconds < 10 ? `0` + seconds : seconds;
         timerElement.innerHTML = `${minutes}: ${seconds}`;
         time--;
     }
-};
-//Restart Timer
-function restartTimer(){
-    killTimer = true;
-    let time = startingMinutes * 60;
-    let minutes = Math.floor(time/60);
+}
+function resetTimer(){
+    return time = focusMinutes * 60;
+}
+
+//Cooldown timer
+function coolDown(){
+    coolDownRunning();
+
+    coolDownMinutes = 0.05;
+    time = coolDownMinutes * 60;
     let seconds = time % 60;
     seconds = seconds < 10 ? `0` + seconds : seconds;
-    timerElement.innerHTML = `${minutes}: ${seconds}`;
-};
+
+    timerInterval = setInterval(updateTimer, 1000);
+    function updateTimer(){
+        if(time == -1){
+            clearIntervals();
+            resetTimer();
+            timer();
+        }
+        let minutes = Math.floor(time/60);
+        let seconds = time % 60;
+        seconds = seconds < 10 ? `0` + seconds : seconds;
+        timerElement.innerHTML = `${minutes}: ${seconds}`;
+        time--;
+    }
+}
+
 
 //Controls
 function pause(){
     document.getElementById('pause').style.display="none";
     document.getElementById('play').style.display="flex";
-    clearInterval(timerInterval);
+    clearIntervals();
 };
 function play(){
     document.getElementById('play').style.display="none";
     document.getElementById('pause').style.display="flex";
-    Timer();
+    timer();
 };
 function restart(){
     document.getElementById('pause').style.display="none";
     document.getElementById('play').style.display="flex";
-    clearInterval(timerInterval);
-    restartTimer();
-    // the issue with the timer value not reseting after resuming seems to be due to the fact that we have don't have a global time value that's constantly being updated
+    clearIntervals();
+    resetTimer();
+    timerElement.innerHTML = `${minutes}: ${seconds}`;
 };
 function next(){
-    alert('next works');
+    if(timerRun == true){
+        clearIntervals();
+        return coolDown();
+    }
+    if(coolDownRun == true){
+        clearIntervals();
+        resetTimer();
+        return timer();
+    }
 };
