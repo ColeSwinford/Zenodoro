@@ -1,4 +1,4 @@
-focusMinutes = 0.1;
+focusMinutes = 50;
 time = focusMinutes * 60;
 minutes = Math.floor(time/60);
 let seconds = time % 60;
@@ -52,7 +52,7 @@ function resetTimer(){
 function coolDown(){
     coolDownRunning();
 
-    coolDownMinutes = 0.05;
+    coolDownMinutes = 10;
     time = coolDownMinutes * 60;
     let seconds = time % 60;
     seconds = seconds < 10 ? `0` + seconds : seconds;
@@ -90,6 +90,7 @@ function restart(){
     clearIntervals();
     resetTimer();
     timerElement.innerHTML = `${minutes}: ${seconds}`;
+    return resetTimer();
 };
 function next(){
     if(timerRun == true){
