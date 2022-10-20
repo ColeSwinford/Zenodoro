@@ -4,7 +4,7 @@ minutes = Math.floor(time/60);
 let seconds = time % 60;
 const timerElement = document.getElementById("timer");
 seconds = seconds < 10 ? `0` + seconds : seconds;
-timerElement.innerHTML = `${minutes}: ${seconds}`;
+timerElement.innerHTML = `${minutes}:${seconds}`;
 
 //Running Status
 timerRun = false;
@@ -40,7 +40,7 @@ function timer(){
         let minutes = Math.floor(time/60);
         let seconds = time % 60;
         seconds = seconds < 10 ? `0` + seconds : seconds;
-        timerElement.innerHTML = `${minutes}: ${seconds}`;
+        timerElement.innerHTML = `${minutes}:${seconds}`;
         time--;
     }
 }
@@ -67,7 +67,7 @@ function coolDown(){
         let minutes = Math.floor(time/60);
         let seconds = time % 60;
         seconds = seconds < 10 ? `0` + seconds : seconds;
-        timerElement.innerHTML = `${minutes}: ${seconds}`;
+        timerElement.innerHTML = `${minutes}:${seconds}`;
         time--;
     }
 }
@@ -89,7 +89,7 @@ function restart(){
     document.getElementById('play').style.display="flex";
     clearIntervals();
     resetTimer();
-    timerElement.innerHTML = `${minutes}: ${seconds}`;
+    timerElement.innerHTML = `${minutes}:${seconds}`;
     return resetTimer();
 };
 function next(){
