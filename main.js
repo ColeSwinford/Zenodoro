@@ -95,6 +95,7 @@ function restart(){
 function next(){
     if(timerRun == true){
         clearIntervals();
+        resetTimer();
         return coolDown();
     }
     if(coolDownRun == true){
