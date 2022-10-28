@@ -6,6 +6,8 @@ minutes = Math.floor(time/60);
 let seconds = time % 60;
 seconds = seconds < 10 ? `0` + seconds : seconds;
 timerElement.innerHTML = `${minutes}:${seconds}`;
+tabTimerElement = document.getElementById("tabTimer");
+tabTimerElement.innerHTML = "Zenodoro | " + `${minutes}:${seconds}`;
 
 //Running Status
 timerRun = false;
@@ -44,6 +46,7 @@ function timer(){
         let seconds = time % 60;
         seconds = seconds < 10 ? `0` + seconds : seconds;
         timerElement.innerHTML = `${minutes}:${seconds}`;
+        tabTimerElement.innerHTML = "Zenodoro | " + `${minutes}:${seconds}`;
         time--;
     }
     updateTimer();
@@ -77,6 +80,7 @@ function coolDown(){
         let seconds = time % 60;
         seconds = seconds < 10 ? `0` + seconds : seconds;
         timerElement.innerHTML = `${minutes}:${seconds}`;
+        tabTimerElement.innerHTML = "Zenodoro | " + `${minutes}:${seconds}`;
         time--;
     }
     updateTimer();
@@ -110,12 +114,14 @@ function restart(){
         clearIntervals();
         resetTimer();
         timerElement.innerHTML = `${minutes}:${seconds}`;
+        tabTimerElement.innerHTML = "Zenodoro | " + `${minutes}:${seconds}`;
         return pause();
     }
     if(coolDownRun == true){
         clearIntervals();
         resetCoolDown();
         timerElement.innerHTML = `${minutes}:${seconds}`;
+        tabTimerElement.innerHTML = "Zenodoro | " + `${minutes}:${seconds}`;
         return pause();
     }
 };
