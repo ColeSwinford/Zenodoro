@@ -1,8 +1,9 @@
+const timerElement = document.getElementById("timer");
 focusMinutes = 50;
+coolDownMinutes = 10;
 time = focusMinutes * 60;
 minutes = Math.floor(time/60);
 let seconds = time % 60;
-const timerElement = document.getElementById("timer");
 seconds = seconds < 10 ? `0` + seconds : seconds;
 timerElement.innerHTML = `${minutes}:${seconds}`;
 
@@ -10,14 +11,16 @@ timerElement.innerHTML = `${minutes}:${seconds}`;
 timerRun = false;
 coolDownRun = false;
 function timerRunning(){
-    coolDownRun = false;
     timerRun = true;
+    coolDownRun = false;
+
     return timerRun, coolDownRun;
 }
 function coolDownRunning(){
     timerRun = false;
     coolDownRun = true;
-    return coolDownRun, timerRun;
+
+    return timerRun, coolDownRun;
 }
 
 
@@ -31,7 +34,7 @@ function clearIntervals(){
 function timer(){
     timerRunning();
 
-    timerInterval = setInterval(updateTimer, 1000);
+    // focusMinutes = 50;
     function updateTimer(){
         if(time == -1){
             clearIntervals();
@@ -43,21 +46,27 @@ function timer(){
         timerElement.innerHTML = `${minutes}:${seconds}`;
         time--;
     }
+    updateTimer();
+    updateTimer();
+    timerInterval = setInterval(updateTimer, 1000);
 }
 function resetTimer(){
-    return time = focusMinutes * 60;
+    time = focusMinutes * 60;
+    minutes = Math.floor(time/60);
+    let seconds = time % 60;
+    seconds = seconds < 10 ? `0` + seconds : seconds;
+    return minutes, seconds;
 }
 
 //Cooldown timer
 function coolDown(){
     coolDownRunning();
 
-    coolDownMinutes = 10;
+    // coolDownMinutes = 10;
     time = coolDownMinutes * 60;
     let seconds = time % 60;
     seconds = seconds < 10 ? `0` + seconds : seconds;
 
-    timerInterval = setInterval(updateTimer, 1000);
     function updateTimer(){
         if(time == -1){
             clearIntervals();
@@ -70,6 +79,16 @@ function coolDown(){
         timerElement.innerHTML = `${minutes}:${seconds}`;
         time--;
     }
+    updateTimer();
+    updateTimer();
+    timerInterval = setInterval(updateTimer, 1000);
+}
+function resetCoolDown(){
+    time = coolDownMinutes * 60
+    minutes = Math.floor(time/60);
+    let seconds = time % 60;
+    seconds = seconds < 10 ? `0` + seconds : seconds;
+    return minutes, seconds;
 }
 
 
@@ -87,20 +106,32 @@ function play(){
 function restart(){
     document.getElementById('pause').style.display="none";
     document.getElementById('play').style.display="flex";
-    clearIntervals();
-    resetTimer();
-    timerElement.innerHTML = `${minutes}:${seconds}`;
-    return resetTimer();
-};
-function next(){
     if(timerRun == true){
         clearIntervals();
         resetTimer();
-        return coolDown();
+        timerElement.innerHTML = `${minutes}:${seconds}`;
+        return pause();
     }
     if(coolDownRun == true){
         clearIntervals();
+        resetCoolDown();
+        timerElement.innerHTML = `${minutes}:${seconds}`;
+        return pause();
+    }
+};
+function next(){
+    if(timerRun == true){
         resetTimer();
-        return timer();
+        clearIntervals();
+        resetTimer();
+        coolDown();
+        return restart();
+    }
+    if(coolDownRun == true){
+        resetTimer();
+        clearIntervals();
+        resetTimer();
+        timer();
+        return restart();
     }
 };
