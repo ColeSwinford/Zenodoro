@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Zenodoro
 
 My zen-themed pomodoro website
