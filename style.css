@@ -12,6 +12,14 @@
     font-size: 300%;
     font-weight: 600;
 }
+.title p1 a{
+    text-decoration: none;
+    color: #445942;
+}
+.title p1 a:hover{
+    color: #b32230;
+    transition: 0.5s;
+}
 #timer{
     display: flex;
     position: absolute;
