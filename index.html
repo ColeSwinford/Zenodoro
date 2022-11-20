@@ -44,10 +44,11 @@
             <i class="fa-solid fa-gear" id="cogPressed" onclick="hideSettings()" style="display: none;"></i>
             <form id="settingsForm" style="display: none">
                 <ul>
-                    <label for="focus" id="focusText">Focus</label>
+                    <label for="focus" id="focusText">focus</label>
                     <input type="number" min="10" id="focus"><br><br>
-                    <label for="rest" id="restText">Rest</label>
+                    <label for="rest" id="restText">rest</label>
                     <input type="number" min="5" id="rest">
+                    <button type="button" id="applyBtn" onclick="applySettings()">apply</button>
                 </ul>
             </form>
         </div>

@@ -176,3 +176,9 @@ function hideSettings(){
     document.getElementById('cogPressed').style.display="none";
     document.getElementById('settingsForm').style.display="none"
 }
+function applySettings(){
+    focusMinutes = document.getElementById('focus').value;
+    coolDownMinutes = document.getElementById('rest').value;
+    hideSettings();
+    return focusMinutes, coolDownMinutes, play(), restart();
+}

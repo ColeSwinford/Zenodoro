@@ -111,7 +111,7 @@
     align-self: right;
     color: #445942;
     position: relative;
-    left: 5%;
+    left: 4.25%;
     width: 30%;
     height: 30%;
     border-color: #445942;
@@ -132,6 +132,28 @@
     height: 30%;
     border-color: #445942;
     border-width: 3px;
+}
+#applyBtn{
+    align-self: right;
+    position: relative;
+    left: -40%;
+    top: 75%;
+    width: 40%;
+    height: 40%;
+    background-color: #445942;
+    border: none;
+    color: #dad2ba;
+    text-align: center;
+    text-decoration: none;
+    margin: auto;
+    padding: auto;
+    cursor: pointer;
+    border-radius: 16px;
+}
+#applyBtn:hover{
+    background-color: #a1b88d;
+    color: #445942;
+    transition: 0.5s;
 }
 
 /* Footer */
