@@ -116,6 +116,7 @@
     height: 30%;
     border-color: #445942;
     border-width: 3px;
+    border-radius: 8px;
 }
 #restText{
     text-align: left;
@@ -132,6 +133,7 @@
     height: 30%;
     border-color: #445942;
     border-width: 3px;
+    border-radius: 8px;
 }
 #applyBtn{
     align-self: right;
@@ -144,7 +146,6 @@
     border: none;
     color: #dad2ba;
     text-align: center;
-    text-decoration: none;
     margin: auto;
     padding: auto;
     cursor: pointer;
