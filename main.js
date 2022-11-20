@@ -164,3 +164,15 @@ function next(){
         return restart();
     }
 };
+
+// Settings
+function showSettings(){
+    document.getElementById('cog').style.display="none";
+    document.getElementById('cogPressed').style.display="flex";
+    document.getElementById('settingsForm').style.display="flex"
+}
+function hideSettings(){
+    document.getElementById('cog').style.display="flex";
+    document.getElementById('cogPressed').style.display="none";
+    document.getElementById('settingsForm').style.display="none"
+}

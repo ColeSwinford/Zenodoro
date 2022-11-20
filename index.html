@@ -31,10 +31,25 @@
 
         <!--Controls-->
         <div class="controls">
-            <i class="fa-solid fa-circle-pause" id="pause" onclick="pause()" style="display:none;"></i>
+            <i class="fa-solid fa-circle-pause" id="pause" onclick="pause()" style="display: none;"></i>
             <i class="fa-solid fa-circle-play" id="play" onclick="play()"></i>
             <i class="fa-solid fa-clock-rotate-left" id="restart" onclick="restart()"></i>
             <i class="fa-solid fa-forward-step" id="next" onclick="next()"></i>
+            <i class="fa-solid fa-forward-step" id="next" onclick="next()"></i>
+        </div>
+
+        <!-- Settings -->
+        <div class="settings">
+            <i class="fa-solid fa-gear" id="cog" onclick="showSettings()"></i>
+            <i class="fa-solid fa-gear" id="cogPressed" onclick="hideSettings()" style="display: none;"></i>
+            <form id="settingsForm" style="display: none">
+                <ul>
+                    <label for="focus" id="focusText">Focus</label>
+                    <input type="number" min="10" id="focus"><br><br>
+                    <label for="rest" id="restText">Rest</label>
+                    <input type="number" min="5" id="rest">
+                </ul>
+            </form>
         </div>
 
         <!--Footer-->

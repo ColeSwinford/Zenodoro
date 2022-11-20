@@ -1,9 +1,12 @@
+/* Background/General Setup */
 * {
     background-color: #dad2ba;
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
 }
+
+/* Title */
 .title{
     position: absolute;
     top: 5%;
@@ -20,6 +23,8 @@
     color: #b32230;
     transition: 0.5s;
 }
+
+/* Timer */
 #timer{
     display: flex;
     position: absolute;
@@ -30,6 +35,8 @@
     left: 50%;
     transform: translate(-50%,-50%);
 }
+
+/* Controls */
 .controls{
     display: flex;
     position: absolute;
@@ -65,6 +72,69 @@
     top: 20%;
     font-size: 225%;
 }
+
+/* Settings */
+.settings{
+    display: flex;
+    color: #a1b88d;
+    cursor: pointer;
+}
+#cog{
+    position: absolute;
+    top: 5%;
+    right: 4%;
+    font-size: 225%;
+}
+#cogPressed{
+    position: absolute;
+    top: 5%;
+    right: 4%;
+    font-size: 225%;
+    color: #445942;
+}
+#cogPressed:hover{
+    color: #a1b88d;
+}
+#settingsForm{
+    position: absolute;
+    display: inline-flex;
+    top: 10%;
+    right: 4%;
+}
+#focusText{
+    text-align: left;
+    color: #445942;
+    font-size: 150%;
+    font-weight: 600;
+}
+#focus{
+    align-self: right;
+    color: #445942;
+    position: relative;
+    left: 5%;
+    width: 30%;
+    height: 30%;
+    border-color: #445942;
+    border-width: 3px;
+}
+#restText{
+    text-align: left;
+    color: #445942;
+    font-size: 150%;
+    font-weight: 600;
+}
+#rest{
+    align-self: right;
+    color: #445942;
+    position: relative;
+    left: 12%;
+    width: 30%;
+    height: 30%;
+    border-color: #445942;
+    border-width: 3px;
+}
+
+/* Footer */
 .footer p{
     text-decoration: none;
     position: absolute;
