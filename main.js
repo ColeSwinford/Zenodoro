@@ -177,8 +177,16 @@ function hideSettings(){
     document.getElementById('settingsForm').style.display="none"
 }
 function applySettings(){
-    focusMinutes = document.getElementById('focus').value;
-    coolDownMinutes = document.getElementById('rest').value;
+    focusIn = document.getElementById('focus').value;
+    restIn = document.getElementById('rest').value;
+    focusMinutes = focusIn;
+    coolDownMinutes = restIn;
+    if(focusIn == ""){
+        focusMinutes = 50;
+    }
+    if(restIn == ""){
+        coolDownMinutes = 10;
+    }
     hideSettings();
     return focusMinutes, coolDownMinutes, play(), restart();
 }
