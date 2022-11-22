@@ -2,4 +2,4 @@
 
 My zen-themed pomodoro website
 
-![www zenodoro com_](https://user-images.githubusercontent.com/19520329/196858377-081871c5-95dc-4d17-8a3f-e55e95df28eb.png)
+![www zenodoro com_](https://user-images.githubusercontent.com/19520329/203209988-dd4f9cbe-f822-46b8-a632-d2f28cb9f43c.png)
