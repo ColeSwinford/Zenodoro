@@ -188,5 +188,5 @@ function applySettings(){
         coolDownMinutes = 10;
     }
     hideSettings();
-    return focusMinutes, coolDownMinutes, play(), restart();
+    return focusMinutes, coolDownMinutes, restart();
 }
