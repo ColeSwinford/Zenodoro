@@ -181,12 +181,6 @@ function applySettings(){
     restIn = document.getElementById('rest').value;
     focusMinutes = focusIn;
     coolDownMinutes = restIn;
-    if(focusIn == ""){
-        focusMinutes = 50;
-    }
-    if(restIn == ""){
-        coolDownMinutes = 10;
-    }
     hideSettings();
     return focusMinutes, coolDownMinutes, restart();
 }
